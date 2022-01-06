@@ -92,7 +92,7 @@ class DebertaV2TokenizationTest(TokenizerTesterMixin, unittest.TestCase):
         tokenizer = DebertaV2Tokenizer(SAMPLE_VOCAB, keep_accents=True)
 
         tokens = tokenizer.tokenize("This is a test")
-        self.assertListEqual(tokens, ["▁", "[UNK]", "his", "▁is", "▁a", "▁test"])
+        self.assertListEqual(tokens, ["▁", "T", "his", "▁is", "▁a", "▁test"]
 
         self.assertListEqual(tokenizer.convert_tokens_to_ids(tokens), [13, 1, 4398, 25, 21, 1289])
 
@@ -100,7 +100,7 @@ class DebertaV2TokenizationTest(TokenizerTesterMixin, unittest.TestCase):
         # fmt: off
         self.assertListEqual(
             tokens,
-            ["▁", "[UNK]", "▁was", "▁born", "▁in", "▁9", "2000", ",", "▁and", "▁this", "▁is", "▁fal", "s", "[UNK]", "."],
+            ["▁", "I", "▁was", "▁born", "▁in", "▁9", "2000", ",", "▁and", "▁this", "▁is", "▁fal", "s", "é", "."],
         )
         ids = tokenizer.convert_tokens_to_ids(tokens)
         self.assertListEqual(ids, [13, 1, 23, 386, 19, 561, 3050, 15, 17, 48, 25, 8256, 18, 1, 9])

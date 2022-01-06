@@ -321,16 +321,7 @@ class SPMTokenizer:
         self.spm.Load(self.vocab_file)
 
     def tokenize(self, text):
-        pieces = self._encode_as_pieces(text)
-
-        def _norm(x):
-            if x not in self.vocab or x == "<unk>":
-                return "[UNK]"
-            else:
-                return x
-
-        pieces = [_norm(p) for p in pieces]
-        return pieces
+        return self._encode_as_pieces(text)
 
     def convert_ids_to_tokens(self, ids):
         tokens = []
